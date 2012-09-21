@@ -12,19 +12,24 @@
 
 .grid-cell {
     border: 1px solid #aaa;
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     cursor: pointer;
+}
+
+h2 {
+    margin: 4px;
+    padding: 4px 0px;
 }
 
 .header {
     font-size: 20px;
-    padding: 8px 0px;
     border-bottom: 1px solid #aaa;
-    margin-bottom: 12px;
 }
 
 .footer {
+    margin-top: 10px;
+    border-top: 1px solid #aaa;
     color: #ddd;
 }
 
@@ -46,4 +51,29 @@
 .close-box {
     font-size: 10px;
     text-align: right;
+}
+
+.char-title {
+    background-color: #eee;
+    padding: 5px;
+    cursor: pointer; 
+    border-top: 1px solid #eee;
+    margin: 5px;
+}
+
+.link {
+    cursor: pointer; 
+    color: blue;
+    text-decoration: underline;
+}
+
+#output-code {
+    display: block;
+    padding: 0.5em 1em;
+    border: 1px solid #bebab0;
+    font-size: 12px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    background: #faf8f0;
 }

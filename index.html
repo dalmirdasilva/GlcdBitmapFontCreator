@@ -1,24 +1,176 @@
-<div class="header">Font cretor for MCUs</div>
-<div>Font chars:</div>
-<div id="chars-holder" style="position:relative;">
-    <table class="drag" border="0" cellspacing="0" cellpadding="0" style="position:absolute;">
-        <tr id="chars-holder-tr"></tr>
+<div class="header"><h2>Font cretor</h2></div>
+
+<div id="step1">
+    <div><h3>Step #1: Setup</h3></div>
+    <div><h4>Defining the size of the font and the segments.</h4></div>
+    <table>
+        <tr>
+            <td>Character width: </td>
+            <td><input type="text" id="char-width" value="5" /></td>
+        </tr>
+        <tr>
+            <td>Character height: </td>
+            <td><input type="text" id="char-height" value="8" /> (in bits, multiples of 8)</td>
+        </tr>
+        <tr>
+            <td valign="top">Choose the chars (<span class="link" id="select-all">all</span>|<span class="link" id="select-none">none</span>): </td>
+            <td>
+                <div><input type="checkbox" value="32" class="char-list-to-chose" id='i-32' ><label for='i-32'>32 = &lt;space&gt;</label></div>
+                <div><input type="checkbox" value="33" class="char-list-to-chose" id='i-33' ><label for='i-33'>33 = !</label></div>
+                <div><input type="checkbox" value="34" class="char-list-to-chose" id='i-34' ><label for='i-34'>34 = "</label></div>
+                <div><input type="checkbox" value="35" class="char-list-to-chose" id='i-35' ><label for='i-35'>35 = #</label></div>
+                <div><input type="checkbox" value="36" class="char-list-to-chose" id='i-36' ><label for='i-36'>36 = $</label></div>
+                <div><input type="checkbox" value="37" class="char-list-to-chose" id='i-37' ><label for='i-37'>37 = %</label></div>
+                <div><input type="checkbox" value="38" class="char-list-to-chose" id='i-38' ><label for='i-38'>38 = &eacute;</label></div>
+                <div><input type="checkbox" value="39" class="char-list-to-chose" id='i-39' ><label for='i-39'>39 = '</label></div>
+                <div><input type="checkbox" value="40" class="char-list-to-chose" id='i-40' ><label for='i-40'>40 = (</label></div>
+                <div><input type="checkbox" value="41" class="char-list-to-chose" id='i-41' ><label for='i-41'>41 = )</label></div>
+                <div><input type="checkbox" value="42" class="char-list-to-chose" id='i-42' ><label for='i-42'>42 = *</label></div>
+                <div><input type="checkbox" value="43" class="char-list-to-chose" id='i-43' ><label for='i-43'>43 = +</label></div>
+                <div><input type="checkbox" value="44" class="char-list-to-chose" id='i-44' ><label for='i-44'>44 = ,</label></div>
+                <div><input type="checkbox" value="45" class="char-list-to-chose" id='i-45' ><label for='i-45'>45 = -</label></div>
+                <div><input type="checkbox" value="46" class="char-list-to-chose" id='i-46' ><label for='i-46'>46 = .</label></div>
+                <div><input type="checkbox" value="47" class="char-list-to-chose" id='i-47' ><label for='i-47'>47 = /</label></div>
+                <div><input type="checkbox" value="48" class="char-list-to-chose" id='i-48' ><label for='i-48'>48 = 0</label></div>
+                <div><input type="checkbox" value="49" class="char-list-to-chose" id='i-49' ><label for='i-49'>49 = 1</label></div>
+                <div><input type="checkbox" value="50" class="char-list-to-chose" id='i-50' ><label for='i-50'>50 = 2</label></div>
+                <div><input type="checkbox" value="51" class="char-list-to-chose" id='i-51' ><label for='i-51'>51 = 3</label></div>
+                <div><input type="checkbox" value="52" class="char-list-to-chose" id='i-52' ><label for='i-52'>52 = 4</label></div>
+                <div><input type="checkbox" value="53" class="char-list-to-chose" id='i-53' ><label for='i-53'>53 = 5</label></div>
+                <div><input type="checkbox" value="54" class="char-list-to-chose" id='i-54' ><label for='i-54'>54 = 6</label></div>
+                <div><input type="checkbox" value="55" class="char-list-to-chose" id='i-55' ><label for='i-55'>55 = 7</label></div>
+                <div><input type="checkbox" value="56" class="char-list-to-chose" id='i-56' ><label for='i-56'>56 = 8</label></div>
+                <div><input type="checkbox" value="57" class="char-list-to-chose" id='i-57' ><label for='i-57'>57 = 9</label></div>
+                <div><input type="checkbox" value="58" class="char-list-to-chose" id='i-58' ><label for='i-58'>58 = :</label></div>
+                <div><input type="checkbox" value="59" class="char-list-to-chose" id='i-59' ><label for='i-59'>59 = ;</label></div>
+                <div><input type="checkbox" value="60" class="char-list-to-chose" id='i-60' ><label for='i-60'>60 = &lt;</label></div>
+                <div><input type="checkbox" value="61" class="char-list-to-chose" id='i-61' ><label for='i-61'>61 = =</label></div>
+                <div><input type="checkbox" value="62" class="char-list-to-chose" id='i-62' ><label for='i-62'>62 = &gt;</label></div>
+                <div><input type="checkbox" value="63" class="char-list-to-chose" id='i-63' ><label for='i-63'>63 = ?</label></div>
+                <div><input type="checkbox" value="64" class="char-list-to-chose" id='i-64' ><label for='i-64'>64 = @</label></div>
+                <div><input type="checkbox" value="65" class="char-list-to-chose" id='i-65' ><label for='i-65'>65 = A</label></div>
+                <div><input type="checkbox" value="66" class="char-list-to-chose" id='i-66' ><label for='i-66'>66 = B</label></div>
+                <div><input type="checkbox" value="67" class="char-list-to-chose" id='i-67' ><label for='i-67'>67 = C</label></div>
+                <div><input type="checkbox" value="68" class="char-list-to-chose" id='i-68' ><label for='i-68'>68 = D</label></div>
+                <div><input type="checkbox" value="69" class="char-list-to-chose" id='i-69' ><label for='i-69'>69 = E</label></div>
+                <div><input type="checkbox" value="70" class="char-list-to-chose" id='i-70' ><label for='i-70'>70 = F</label></div>
+                <div><input type="checkbox" value="71" class="char-list-to-chose" id='i-71' ><label for='i-71'>71 = G</label></div>
+                <div><input type="checkbox" value="72" class="char-list-to-chose" id='i-72' ><label for='i-72'>72 = H</label></div>
+                <div><input type="checkbox" value="73" class="char-list-to-chose" id='i-73' ><label for='i-73'>73 = I</label></div>
+                <div><input type="checkbox" value="74" class="char-list-to-chose" id='i-74' ><label for='i-74'>74 = J</label></div>
+                <div><input type="checkbox" value="75" class="char-list-to-chose" id='i-75' ><label for='i-75'>75 = K</label></div>
+                <div><input type="checkbox" value="76" class="char-list-to-chose" id='i-76' ><label for='i-76'>76 = L</label></div>
+                <div><input type="checkbox" value="77" class="char-list-to-chose" id='i-77' ><label for='i-77'>77 = M</label></div>
+                <div><input type="checkbox" value="78" class="char-list-to-chose" id='i-78' ><label for='i-78'>78 = N</label></div>
+                <div><input type="checkbox" value="79" class="char-list-to-chose" id='i-79' ><label for='i-79'>79 = O</label></div>
+                <div><input type="checkbox" value="80" class="char-list-to-chose" id='i-80' ><label for='i-80'>80 = P</label></div>
+                <div><input type="checkbox" value="81" class="char-list-to-chose" id='i-81' ><label for='i-81'>81 = Q</label></div>
+                <div><input type="checkbox" value="82" class="char-list-to-chose" id='i-82' ><label for='i-82'>82 = R</label></div>
+                <div><input type="checkbox" value="83" class="char-list-to-chose" id='i-83' ><label for='i-83'>83 = S</label></div>
+                <div><input type="checkbox" value="84" class="char-list-to-chose" id='i-84' ><label for='i-84'>84 = T</label></div>
+                <div><input type="checkbox" value="85" class="char-list-to-chose" id='i-85' ><label for='i-85'>85 = U</label></div>
+                <div><input type="checkbox" value="86" class="char-list-to-chose" id='i-86' ><label for='i-86'>86 = V</label></div>
+                <div><input type="checkbox" value="87" class="char-list-to-chose" id='i-87' ><label for='i-87'>87 = W</label></div>
+                <div><input type="checkbox" value="88" class="char-list-to-chose" id='i-88' ><label for='i-88'>88 = X</label></div>
+                <div><input type="checkbox" value="89" class="char-list-to-chose" id='i-89' ><label for='i-89'>89 = Y</label></div>
+                <div><input type="checkbox" value="90" class="char-list-to-chose" id='i-90' ><label for='i-90'>90 = Z</label></div>
+                <div><input type="checkbox" value="91" class="char-list-to-chose" id='i-91' ><label for='i-91'>91 = [</label></div>
+                <div><input type="checkbox" value="92" class="char-list-to-chose" id='i-92' ><label for='i-92'>92 = \</label></div>
+                <div><input type="checkbox" value="93" class="char-list-to-chose" id='i-93' ><label for='i-93'>93 = ]</label></div>
+                <div><input type="checkbox" value="94" class="char-list-to-chose" id='i-94' ><label for='i-94'>94 = ^</label></div>
+                <div><input type="checkbox" value="95" class="char-list-to-chose" id='i-95' ><label for='i-95'>95 = _</label></div>
+                <div><input type="checkbox" value="96" class="char-list-to-chose" id='i-96' ><label for='i-96'>96 = `</label></div>
+                <div><input type="checkbox" value="97" class="char-list-to-chose" id='i-97' ><label for='i-97'>97 = a</label></div>
+                <div><input type="checkbox" value="98" class="char-list-to-chose" id='i-98' ><label for='i-98'>98 = b</label></div>
+                <div><input type="checkbox" value="99" class="char-list-to-chose" id='i-99' ><label for='i-99'>99 = c</label></div>
+                <div><input type="checkbox" value="100" class="char-list-to-chose" id='i-100' ><label for='i-100'>100 = d</label></div>
+                <div><input type="checkbox" value="101" class="char-list-to-chose" id='i-101' ><label for='i-101'>101 = e</label></div>
+                <div><input type="checkbox" value="102" class="char-list-to-chose" id='i-102' ><label for='i-102'>102 = f</label></div>
+                <div><input type="checkbox" value="103" class="char-list-to-chose" id='i-103' ><label for='i-103'>103 = g</label></div>
+                <div><input type="checkbox" value="104" class="char-list-to-chose" id='i-104' ><label for='i-104'>104 = h</label></div>
+                <div><input type="checkbox" value="105" class="char-list-to-chose" id='i-105' ><label for='i-105'>105 = i</label></div>
+                <div><input type="checkbox" value="106" class="char-list-to-chose" id='i-106' ><label for='i-106'>106 = j</label></div>
+                <div><input type="checkbox" value="107" class="char-list-to-chose" id='i-107' ><label for='i-107'>107 = k</label></div>
+                <div><input type="checkbox" value="108" class="char-list-to-chose" id='i-108' ><label for='i-108'>108 = l</label></div>
+                <div><input type="checkbox" value="109" class="char-list-to-chose" id='i-109' ><label for='i-109'>109 = m</label></div>
+                <div><input type="checkbox" value="110" class="char-list-to-chose" id='i-110' ><label for='i-110'>110 = n</label></div>
+                <div><input type="checkbox" value="111" class="char-list-to-chose" id='i-111' ><label for='i-111'>111 = o</label></div>
+                <div><input type="checkbox" value="112" class="char-list-to-chose" id='i-112' ><label for='i-112'>112 = p</label></div>
+                <div><input type="checkbox" value="113" class="char-list-to-chose" id='i-113' ><label for='i-113'>113 = q</label></div>
+                <div><input type="checkbox" value="114" class="char-list-to-chose" id='i-114' ><label for='i-114'>114 = r</label></div>
+                <div><input type="checkbox" value="115" class="char-list-to-chose" id='i-115' ><label for='i-115'>115 = s</label></div>
+                <div><input type="checkbox" value="116" class="char-list-to-chose" id='i-116' ><label for='i-116'>116 = t</label></div>
+                <div><input type="checkbox" value="117" class="char-list-to-chose" id='i-117' ><label for='i-117'>117 = u</label></div>
+                <div><input type="checkbox" value="118" class="char-list-to-chose" id='i-118' ><label for='i-118'>118 = v</label></div>
+                <div><input type="checkbox" value="119" class="char-list-to-chose" id='i-119' ><label for='i-119'>119 = w</label></div>
+                <div><input type="checkbox" value="120" class="char-list-to-chose" id='i-120' ><label for='i-120'>120 = x</label></div>
+                <div><input type="checkbox" value="121" class="char-list-to-chose" id='i-121' ><label for='i-121'>121 = y</label></div>
+                <div><input type="checkbox" value="122" class="char-list-to-chose" id='i-122' ><label for='i-122'>122 = z</label></div>
+                <div><input type="checkbox" value="123" class="char-list-to-chose" id='i-123' ><label for='i-123'>123 = {</label></div>
+                <div><input type="checkbox" value="124" class="char-list-to-chose" id='i-124' ><label for='i-124'>124 = |</label></div>
+                <div><input type="checkbox" value="125" class="char-list-to-chose" id='i-125' ><label for='i-125'>125 = }</label></div>
+                <div><input type="checkbox" value="126" class="char-list-to-chose" id='i-126' ><label for='i-126'>126 = ~</label></div>
+            <td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="use-default" checked><label for="use-default">Give-me a hand</label></td>
+            <td>(it means you don't need to make it from scratch, it will fill the glyph with a default bitmap)<td>
+        </tr>
+    </table>
+    <button id="setitup">Done, go to spet #2</button>
+</div>
+
+<div id="step2" style="display: none;">
+    <span class="link" id="back-to-setup">&lt; back to the step #1 (losing everything)</span>
+    <div><h3>Step #2: Create</h3></div>
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                <div>Visual glyph editor</div>
+                <div style="border-top:1px solid #aaa; margin-top:10px;"></div>
+            </td>
+            <td width="50%">
+                <div>Code output</div>
+                <div style="border-top:1px solid #aaa; margin-top:10px;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <div style="">
+                    <div id="chars-holder" style="position:relative;">
+                    </div>
+                </div>
+            </td>
+            <td valign="top">
+                <div style="">
+                    <div style="margin-top:10px;">
+                        Base: 
+                        <select id="output-base">
+                            <option value="2">Bin</option>
+                            <option value="8">Oct</option>
+                            <option value="10" selected>Dec</option>
+                            <option value="16">Hex</option>
+                        </select>&nbsp;
+                        <button id="generate-output-code">Generate output</button></div>
+                    <div style="margin-top:10px;">Font code:</div>
+                    <div id="output-code">// output code
+                    </div>
+                </div>
+            </td>
+        </tr>
     </table>
 </div>
-<div style="position:absolute;bottom:0px;">
-	<div><button id="add-char-to-grid">add char</button></div>
-	<div>Font code:</div>
-	<div><textarea id="grid-value" style="width:1000;">0x00,0x03,0x00,0x03,0x00,0x14,0x7f,0x14,0x7f,0x14</textarea></div>
-</div>
+
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="jquery.js" type="text/javascript"></script>
+<script src="defaultFont.js" type="text/javascript"></script>
 <script src="creator.js" type="text/javascript"></script>
 <script src="ui/js/jquery-ui-1.8.20.custom.min.js" type="text/javascript"></script>
 <script src="UI.js" type="text/javascript"></script>
 <script type="text/javascript">
-	$().ready(function(){ $(".drag").draggable(); });
-    var creator = new Creator();
-    var ui = new UI(creator);
-    ui.init(8, 8);
+	$().ready(function(){
+        var creator = new Creator();
+        creator.init();
+    });
 </script>
-<div style="position:absolute;bottom:-40px;" class="footer">Written by Dalmir da Silva &lt;dalmirdasilva@gmail.com&gt;</div>
+<div style="" class="footer">Written by Dalmir da Silva &lt;dalmirdasilva@gmail.com&gt;</div>
