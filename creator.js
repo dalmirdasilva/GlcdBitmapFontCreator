@@ -88,7 +88,11 @@ function Creator() {
                             var p = k * 8 + h;
                             var id = "cell-"+i+"-"+j+"-"+p+"-"+w;
                             if ($("#"+id).hasClass("selected-cell")) {
-                                b |= 1 << (7-h);
+                                if (parseInt($("#significant-bit").val())) {
+                                  b |= 0x80 >> (7 - h);
+                                } else {
+                                  b |= 0x01 << (7 - h);
+                                }
                             }
                         }
                         result.push(this.toS(b));
